@@ -1,11 +1,13 @@
+import Todo from './components/Todo'
 
 function App() {
 
   return (
     <div className="App">
-      <p>Todo List App</p>
+      <Todo/>
     </div>
   )
+  
 }
 
 export default App
