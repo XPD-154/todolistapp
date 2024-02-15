@@ -1,5 +1,8 @@
 import { useState } from "react"
-import Todoitem from "./Todoitem";
+import Todoitem from "./Todoitem"
+
+//using inline styling
+const todolistItemStyle = {color: "blue", fontSize: "20px"};
 
 //component to set todolist items
 export default function Todo(){
@@ -28,10 +31,12 @@ export default function Todo(){
     return(
         <div>
             <form onSubmit={(e)=>handleSubmit(e)}>
+                <label className="label">Enter a Todo Item</label>
                 <input type="text" onChange={(e) => setTodo(e.target.value)} value={todo}/>
                 <button type="submit" >Add</button>
             </form>
-            {todos.map(item=><Todoitem key={item} item={item}/>)}
+            {/*use inline styling*/}
+            <h4 style={todolistItemStyle}>{todos.map(item=><Todoitem key={item} item={item}/>)}</h4>
         </div>
     )
 }
