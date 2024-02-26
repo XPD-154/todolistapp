@@ -10,6 +10,6 @@ export default function TodoList({todos, setTodos}){
 
         //looping through the array received as props to display items on the list
         //Also contains the Todoitem component to receive items from todos array
-        <h4 className={styles.list}>{todos.map(item=> <Todoitem key={item} item={item} todos={todos} setTodos={setTodos} />)}</h4>
+        <h4 className={styles.list}>{todos.map(item=> <Todoitem key={item.name} item={item} todos={todos} setTodos={setTodos} />)}</h4>
     );
 }

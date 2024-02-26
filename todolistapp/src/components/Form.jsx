@@ -4,8 +4,8 @@ import styles from "./form.module.css"
 //component for App form receiving a state variable as props
 export default function Form({todos, setTodos}){
 
-    //set variable to collect todolist items
-    const [todo, setTodo] = useState("");
+    //set variable to collect todolist items (variable converted to an object)
+    const [todo, setTodo] = useState({name:"", done:false});
 
     //function to handle what happens on Submit
     function handleSubmit(e){
@@ -19,7 +19,7 @@ export default function Form({todos, setTodos}){
         setTodos([...todos, todo]);
 
         //clear the input element
-        setTodo("")
+        setTodo({name:"", done:false})
     }
 
     return(
@@ -28,7 +28,7 @@ export default function Form({todos, setTodos}){
             <div className={styles.inputContainer}>
 
                 {/*input to collect and display value of what is typed*/}
-                <input className={styles.modernInput} type="text" onChange={(e) => setTodo(e.target.value)} value={todo} placeholder="Enter a Todo Item"/>
+                <input className={styles.modernInput} type="text" onChange={(e) => setTodo({name:e.target.value, done:false})} value={todo.name} placeholder="Enter a Todo Item"/>
 
                 <button className={styles.modernButton} type="submit" >Add</button>
             </div>
